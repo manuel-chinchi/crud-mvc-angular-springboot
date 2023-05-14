@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent // Custom components
   ],
   imports: [
-    BrowserModule
+    BrowserModule // NgIf, NgFor...
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    // Service classes, etc
+  ],
+  bootstrap: [AppComponent] // Main component
 })
 export class AppModule { }
