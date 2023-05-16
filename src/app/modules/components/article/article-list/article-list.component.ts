@@ -5,7 +5,7 @@ import { Article } from '../article';
   selector: 'app-article-list',
   templateUrl: './article-list.component.html'
 })
-export class ArticleListComponent implements OnInit {
+export class ArticleListComponent {
 
   public articles: Article[] = [
     { id: 1, name: 'zapatilla', description: 'nike, talle 44', quantity: 100 },
@@ -14,8 +14,4 @@ export class ArticleListComponent implements OnInit {
   ];
 
   constructor() { }
-
-  ngOnInit(): void {
-    
-  }
 }
