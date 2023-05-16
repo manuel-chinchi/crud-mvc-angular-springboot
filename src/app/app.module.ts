@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { ArticleListComponent } from './modules/components/article/article-list/article-list.component';
 
 @NgModule({
   declarations: [
     AppComponent, // Custom components
     HeaderComponent, 
-    FooterComponent
+    FooterComponent, 
+    ArticleListComponent
   ],
   imports: [
     BrowserModule // NgIf, NgFor...
