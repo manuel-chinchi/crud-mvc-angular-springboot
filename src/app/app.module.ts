@@ -5,13 +5,17 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { ArticleListComponent } from './modules/components/article/article-list/article-list.component';
+import { ArticleCreateComponent } from './modules/components/article/article-create/article-create.component';
+import { ArticleEditComponent } from './modules/components/article/article-edit/article-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent, // Custom components
-    HeaderComponent, 
-    FooterComponent, 
-    ArticleListComponent
+    HeaderComponent,
+    FooterComponent,
+    ArticleListComponent,
+    ArticleCreateComponent,
+    ArticleEditComponent
   ],
   imports: [
     BrowserModule // NgIf, NgFor...
