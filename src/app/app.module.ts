@@ -7,6 +7,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { ArticleListComponent } from './modules/components/article/article-list/article-list.component';
 import { ArticleCreateComponent } from './modules/components/article/article-create/article-create.component';
 import { ArticleEditComponent } from './modules/components/article/article-edit/article-edit.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ArticleEditComponent } from './modules/components/article/article-edit/
     ArticleEditComponent
   ],
   imports: [
-    BrowserModule // NgIf, NgFor...
+    BrowserModule, // NgIf, NgFor...
+    AppRoutingModule
   ],
   providers: [
     // Service classes, etc
