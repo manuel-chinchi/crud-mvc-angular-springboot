@@ -8,6 +8,7 @@ import { ArticleListComponent } from './modules/components/article/article-list/
 import { ArticleCreateComponent } from './modules/components/article/article-create/article-create.component';
 import { ArticleEditComponent } from './modules/components/article/article-edit/article-edit.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ArticleService } from './core/services/article.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule
   ],
   providers: [
-    // Service classes, etc
+    ArticleService // Service classes, etc
   ],
   bootstrap: [AppComponent] // Main component
 })
