@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
-import { ARTICLES } from 'src/app/modules/components/article/articles.json';
 import { Article } from 'src/app/modules/components/article/article';
 import { Observable } from 'rxjs';
-import { of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 
 export class ArticleService {
 
-  constructor() { }
+  private baseUrl = 'http://localhost:8080/api/articles';
+  private http: HttpClient;
+
+  constructor(http: HttpClient) {
+    this.http = http;
+  }
 
   getArticles(): Observable<Article[]> {
-    return of(ARTICLES);
+    return this.http.get<Article[]>(this.baseUrl);
   }
 }

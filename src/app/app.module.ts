@@ -9,6 +9,7 @@ import { ArticleCreateComponent } from './modules/components/article/article-cre
 import { ArticleEditComponent } from './modules/components/article/article-edit/article-edit.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ArticleService } from './core/services/article.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ArticleService } from './core/services/article.service';
   ],
   imports: [
     BrowserModule, // NgIf, NgFor...
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     ArticleService // Service classes, etc
