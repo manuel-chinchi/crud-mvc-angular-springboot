@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { ArticleListComponent } from './modules/components/article/article-list/article-list.component';
-import { ArticleCreateComponent } from './modules/components/article/article-create/article-create.component';
+import { ArticleListComponent } from './models/article/article-list/article-list.component';
+import { ArticleCreateComponent } from './models/article/article-create/article-create.component';
 
 const routes: Routes = [
   { path: 'home', redirectTo: '/', pathMatch: 'full' },
