@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Article } from 'src/app/models/article/article';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 
@@ -9,6 +9,7 @@ export class ArticleService {
 
   private baseUrl = 'http://localhost:8080/api/articles';
   private http: HttpClient;
+  private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(http: HttpClient) {
     this.http = http;
@@ -16,5 +17,9 @@ export class ArticleService {
 
   getArticles(): Observable<Article[]> {
     return this.http.get<Article[]>(this.baseUrl);
+  }
+
+  create(article: Article): Observable<Article> {
+    return this.http.post<Article>(this.baseUrl, article, { headers: this.httpHeaders });
   }
 }

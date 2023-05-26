@@ -3,10 +3,10 @@
 <hr />
 <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-10">
-        <form action="">
+        <form (ngSubmit)="create()">
             <div class="form-group">
                 <label>Nombre</label>
-                <input type="text" class="form-control form-control-sm">
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="article.name" name="name">
             </div>
             <div class="form-group">
                 <label>Categoría</label>
@@ -18,11 +18,11 @@
             </div>
             <div class="form-group">
                 <label>Descripción</label>
-                <textarea typeof="text" class="form-control form-control-sm"></textarea>
+                <textarea typeof="text" class="form-control form-control-sm" [(ngModel)]="article.description" name="description"></textarea>
             </div>
             <div class="form-group">
                 <label>Cantidad</label>
-                <input type="number" class="form-control form-control-sm">
+                <input type="number" class="form-control form-control-sm" [(ngModel)]="article.quantity" name="quantity">
             </div>
             <br />
             <button class="btn btn-primary btn-sm">Guardar</button>
