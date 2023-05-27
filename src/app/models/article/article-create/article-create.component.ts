@@ -19,7 +19,7 @@ export class ArticleCreateComponent {
   }
 
   public create(): void {
-    this.articleService.create(this.article).subscribe(
+    this.articleService.createArticle(this.article).subscribe(
       response => this.router.navigate(['article-list'])
     );
   }

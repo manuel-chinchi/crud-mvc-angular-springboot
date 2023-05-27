@@ -19,7 +19,7 @@ export class ArticleService {
     return this.http.get<Article[]>(this.baseUrl);
   }
 
-  create(article: Article): Observable<Article> {
+  createArticle(article: Article): Observable<Article> {
     return this.http.post<Article>(this.baseUrl, article, { headers: this.httpHeaders });
   }
 }
