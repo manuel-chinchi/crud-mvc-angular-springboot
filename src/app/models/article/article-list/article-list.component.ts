@@ -38,10 +38,10 @@ export class ArticleListComponent implements OnInit {
         search: 'Buscar:',
         lengthMenu: 'Mostrar _MENU_ registros',
         paginate: {
-          first: 'primero',
+          first: 'Primero',
           previous: 'Anterior',
           next: 'Siguiente',
-          last: 'último'
+          last: 'Último'
         }
       }
     };
