@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ArticleService } from './services/article.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule, // NgIf, NgFor...
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    DataTablesModule
   ],
   providers: [
     ArticleService // Service classes, etc
