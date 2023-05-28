@@ -7,6 +7,7 @@ import { FooterComponent } from './views/shared/footer/footer.component';
 import { ArticleListComponent } from './models/article/article-list/article-list.component';
 import { ArticleCreateComponent } from './models/article/article-create/article-create.component';
 import { ArticleEditComponent } from './models/article/article-edit/article-edit.component';
+import { ArticleActionButtonsComponent } from './models/article/article-action-buttons/article-action-buttons.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ArticleService } from './services/article.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,7 +21,8 @@ import { DataTablesModule } from 'angular-datatables';
     FooterComponent,
     ArticleListComponent,
     ArticleCreateComponent,
-    ArticleEditComponent
+    ArticleEditComponent,
+    ArticleActionButtonsComponent
   ],
   imports: [
     BrowserModule, // NgIf, NgFor...
