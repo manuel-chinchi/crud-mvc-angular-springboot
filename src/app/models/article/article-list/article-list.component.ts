@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Article } from '../article';
 import { ArticleService } from 'src/app/services/article.service';
 import { Subject } from 'rxjs';
 import { ArticleActionButtonsComponent } from '../article-action-buttons/article-action-buttons.component';
-import { ajax } from 'jquery';
 
 @Component({
   selector: 'app-article-list',
@@ -21,8 +20,10 @@ export class ArticleListComponent implements OnInit {
     this.articleService = articleService;
   }
 
-  public deleteAction(id: number) {
-    console.log(id);
+  deleteAction(id: number): void {
+    this.articleService.deleteArticle(id).subscribe(
+      (response) => alert(`Cliente ID: ${id} eliminado!!!`)
+    );
   }
 
   ngOnInit() {
@@ -75,36 +76,65 @@ export class ArticleListComponent implements OnInit {
                 <button id="btn_details" type="button" class="btn btn-success btn-sm mr-1" data-toggle="modal" data-target="">Detalles</button>
 
                 <!-- Button trigger modal 'Delete' -->
-                <button id="btn_delete" (click)="deleteAction(1)"  type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="">Eliminar</button>
+                <button id="btn_delete" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="">Eliminar</button>
               </div>
             </form>
             `
           },
+          // OLD!!!!!!
           // BORRA EL ELEMENTO, PERO ES MEDIO FEA ESTA FORMA...!!!!!
           // resource link
           // https://datatables.net/forums/discussion/74980/how-to-add-a-action-button-in-a-datatable-of-an-angular-component-to-call-typescript-function
-          createdCell: function (cell: any, cellData: any, rowData: any, rowIndex: any, colIndex: any) {
-            $(cell).find('button').on('click', function (event) {
-              event.preventDefault();
+          // createdCell: function (cell: any, cellData: any, rowData: any, rowIndex: any, colIndex: any) {
+          //   $(cell).find('button').on('click', function (event) {
+          //     event.preventDefault();
 
-              var id_article = rowData[0];
-              var action = $(this).attr('id');
+          //     var id_article = rowData[0];
+          //     var action = $(this).attr('id');
 
-              if (action == 'btn_delete') {
-                ajax({
-                  url: `http://localhost:8080/api/articles/${id_article}`,
-                  type: 'DELETE',
-                  success: function (data) {
-                    alert(`se elimino elemento ${id_article}`)
-                  }
-                });
-              }
-            });
-          }
-
+          //     if (action == 'btn_delete') {
+          //       ajax({
+          //         url: `http://localhost:8080/api/articles/${id_article}`,
+          //         type: 'DELETE',
+          //         success: function (data) {
+          //           alert(`se elimino elemento ${id_article}`)
+          //         }
+          //       });
+          //     }
+          //   });
+          // }
         }
-      ]
-    };
+      ],
+      rowCallback: (row: Node, data: any[] | Object, index: number) => {
+        const self = this;
+        // Unbind first in order to avoid any duplicate handler
+        // (see https://github.com/l-lin/angular-datatables/issues/87)
+        // Note: In newer jQuery v3 versions, `unbind` and `bind` are
+        // deprecated in favor of `off` and `on`
+        // $('td', row).off('click');
+        // $('td', row).on('click', () => {
+        //   self.deleteAction(1);
+        // });
+        // return row;
+
+        $(row).find('button').on('click', function () {
+          var id_article = data[0];
+          self.deleteAction(id_article);
+
+          return row;
+        });
+      },
+      // data: this.articleService.getArticles()
+      // ajax: (dataTablesParameters: any, callback) => {
+      //   this.http.get<Article[]>(
+      //     `http://localhost:8080/api/articles`,
+      //     dataTablesParameters
+      //   ).subscribe(data => {
+      //     this.articleService.getArticles()
+      //   }
+      //   );
+      // }
+    }; // end 'dtOptions'
   };
 
 

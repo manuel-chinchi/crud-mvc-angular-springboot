@@ -22,4 +22,8 @@ export class ArticleService {
   createArticle(article: Article): Observable<Article> {
     return this.http.post<Article>(this.baseUrl, article, { headers: this.httpHeaders });
   }
+
+  deleteArticle(id: number): Observable<Article> {
+    return this.http.delete<Article>(`${this.baseUrl}/${id}`, { headers: this.httpHeaders });
+  }
 }
