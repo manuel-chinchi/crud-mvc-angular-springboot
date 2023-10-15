@@ -31,6 +31,9 @@ export class ArticleListComponent implements OnInit {
     this.articleService.deleteArticle(id).subscribe(
       (response) => console.log(`Cliente ID: ${id} eliminado!!!`)
     );
+
+    console.log(`quedan ${this.articles.length}`);
+
     this.rerender();
 
   }
@@ -145,6 +148,7 @@ export class ArticleListComponent implements OnInit {
 
         $(row).find('button').on('click', function () {
           var id_article = data[0];
+          self.articles.splice(index, 1);
           self.deleteAction(id_article);
           // self.refreshList();
           return row;
