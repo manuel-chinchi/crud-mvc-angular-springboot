@@ -117,16 +117,16 @@ export class ArticleListComponent implements OnInit {
               var id_article = rowData[0];
               var action = $(this).attr('id');
 
-              if (action == 'btn_delete') {
-                ajax({
-                  url: `http://localhost:8080/api/articles/${id_article}`,
-                  type: 'DELETE',
-                  success: function (data) {
-                    // alert(`se elimino elemento ${id_article}`)
-                    console.log(`se elimino elemento ${id_article}`);
-                  }
-                });
-              }
+              // if (action == 'btn_delete') {
+              //   ajax({
+              //     url: `http://localhost:8080/api/articles/${id_article}`,
+              //     type: 'DELETE',
+              //     success: function () {
+              //       // alert(`se elimino elemento ${id_article}`)
+              //       // console.log(`se elimino elemento ${id_article}`);
+              //     }
+              //   });
+              // }
             });
           }
         }
