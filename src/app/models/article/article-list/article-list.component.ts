@@ -147,10 +147,22 @@ export class ArticleListComponent implements OnInit {
         // return row;
 
         $(row).find('button').on('click', function () {
+          console.log(data);
+          var action = $(this).attr('id');
           var id_article = data[0];
-          self.articles.splice(index, 1);
-          self.deleteAction(id_article);
-          // self.refreshList();
+
+          if (action == 'btn_edit') {
+            console.log('edit')
+          }
+          else if (action == 'btn_details') {
+            console.log('details')
+          }
+          else {
+            // console.log(this);
+            self.articles.splice(index, 1);
+            self.deleteAction(id_article);
+            // self.refreshList();
+          }
           return row;
         });
       },
